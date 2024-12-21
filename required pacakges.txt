@@ -1,0 +1,6 @@
+pip install PyPDF2
+pip install sentence-transformers
+pip install transformers
+pip install faiss-cpu
+pip install nltk
+pip install numpy
