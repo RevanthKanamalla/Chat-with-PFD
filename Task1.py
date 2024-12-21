@@ -60,12 +60,6 @@ def retrieve_relevant_chunks(query, index, chunks, top_k=5):
 def generate_response(context, query):
     return qa_pipeline({"context": " ".join(context), "question": query})
 
-# Main Pipeline
-#
-#             chunks = segment_text_into_chunks(page_text)
-#             all_chunks.extend(chunks)
-#         # Further processing...
-
 def main():
 
     all_chunks = []
@@ -82,10 +76,6 @@ def main():
         for page_text in text_data:
             chunks = segment_text_into_chunks(page_text)
             all_chunks.extend(chunks)
-        # Further processing...
-
-# if name == "main":
-#     main()
 
     # Step 2: Embed and store chunks
     print("Generating embeddings...")
@@ -110,5 +100,5 @@ def main():
         response = generate_response(relevant_chunks, user_query)
         print("\nResponse:", response['answer'])
 
-if _name_ == "_main_":
+if __name__ == "__main__":
     main()
